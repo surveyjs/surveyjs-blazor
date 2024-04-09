@@ -1,2 +1,4 @@
 obj
 bin
+node_modules
+wwwroot/static

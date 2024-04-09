@@ -1,0 +1,138 @@
+﻿@page "/create"
+@rendermode InteractiveServer
+
+<PageTitle>Survey Creator</PageTitle>
+
+<script>
+    var json = {
+    // "showProgressBar": "both",
+    // "progressBarShowPageNumbers": true,
+    // "progressBarShowPageTitles": true,
+    // "progressBarInheritWidthFrom": "survey",
+    // "widthMode": "static",
+    // "width": "1500px",
+    "title": "NPS Survey Question",
+    "pages": [
+      {
+        "name": "page1",
+        "title": "On a scale of zero to ten, how likely are you to recommend our product to a friend or colleague?",
+        "elements": [
+          {
+            type: "boolean",
+            name: "b1"
+          },
+          {
+            type: "boolean",
+            name: "b2",
+            swapOrder: true
+          },
+          {
+            type: "boolean",
+            renderAs: "radio",
+            name: "b3"
+          },
+          {
+            type: "boolean",
+            renderAs: "radio",
+            name: "b4",
+            swapOrder: true
+          },
+          {
+            "type": "rating",
+            "name": "nps_score",
+            "title": "On a scale of zero to ten, how likely are you to recommend our product to a friend or colleague?",
+            "rateCount": 11,
+            "rateMin": 0,
+            "rateMax": 10,
+            "minRateDescription": "(Most unlikely)",
+            "maxRateDescription": "(Most likely)"
+          },
+          {
+            "type": "checkbox",
+            "name": "promoter_features",
+            "visibleIf": "{nps_score} >= 9",
+            "title": "Which of the following features do you value the most?",
+            "description": "Please select no more than three features.",
+            "choices": [
+              "Performance",
+              "Stability",
+              "User interface",
+              "Complete functionality",
+              "Learning materials (documentation, demos, code examples)",
+              "Quality support"
+            ],
+            "showOtherItem": true,
+            "otherText": "Other features:",
+            "colCount": 2
+          },
+          {
+            "type": "comment",
+            "name": "passive_experience",
+            "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+            "title": "What can we do to make your experience more satisfying?"
+          },
+          {
+            "type": "comment",
+            "name": "disappointing_experience",
+            "visibleIf": "{nps_score} <= 6",
+            "title": "Please let us know why you had such a disappointing experience with our product"
+          }
+        ]
+      },
+      {
+        "name": "page2",
+        "title": "Which of the following features do you value the most?",
+        "elements": [
+          {
+            "type": "text",
+            "name": "question1"
+          },
+          {
+            "type": "text",
+            "name": "question2"
+          },
+          {
+            "type": "text",
+            "name": "question3"
+          }
+        ]
+      },
+      {
+        "name": "page3",
+        "elements": [
+          {
+            "type": "text",
+            "name": "question4"
+          }
+        ]
+      },
+      {
+        "name": "page4",
+        "elements": [
+          {
+            "type": "text",
+            "name": "question5"
+          }
+        ]
+      }
+    ]
+  };
+</script>
+
+<div class="text-center">
+    <div id="root"></div>
+</div>
+
+<script src="static/editor.js"></script>
+<link href="static/editor.css" rel="stylesheet">
+
+@inject IJSRuntime jsRuntime
+@implements IDisposable
+@code{
+  protected override async Task OnAfterRenderAsync(bool firstRender) {
+    await base.OnAfterRenderAsync(firstRender);
+    await jsRuntime.InvokeVoidAsync("SurveyJSeditor.initPage");
+  }
+  void IDisposable.Dispose() {
+  }
+}
