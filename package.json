@@ -9,9 +9,9 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "survey-core": "latest",
-        "survey-react-ui": "latest",
         "survey-creator-core": "latest",
-        "survey-creator-react": "latest"
+        "survey-creator-react": "latest",
+        "survey-react-ui": "latest"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",
@@ -20,7 +20,6 @@
         "@babel/preset-typescript": "^7.1.0",
         "@types/react": "^18.0.27",
         "@types/react-dom": "^18.0.9",
-        "aspnet-webpack": "^3.0.0",
         "babel-loader": "^8.0.2",
         "css-loader": "^6.7.3",
         "mini-css-extract-plugin": "^2.7.2",

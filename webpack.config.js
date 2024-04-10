@@ -3,13 +3,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
-    entry: {
-        editor: "./ClientAssets/TypeScript/edit.tsx",
-        runner: "./ClientAssets/TypeScript/run.tsx"
-    },
+    entry: "./ClientAssets/TypeScript/index.tsx",
     output: {
         library: {
-            name: 'SurveyJS[name]',
+            name: 'SurveyJS',
             type: 'var'
         },
         path: path.resolve(__dirname, "./wwwroot/static"),

@@ -123,15 +123,12 @@
     <div id="root"></div>
 </div>
 
-<script src="static/runner.js"></script>
-<link href="static/runner.css" rel="stylesheet">
-
 @inject IJSRuntime jsRuntime
 @implements IDisposable
 @code{
   protected override async Task OnAfterRenderAsync(bool firstRender) {
     await base.OnAfterRenderAsync(firstRender);
-    await jsRuntime.InvokeVoidAsync("SurveyJSrunner.initPage");
+    await jsRuntime.InvokeVoidAsync("SurveyJS.initRunnerPage");
   }
   void IDisposable.Dispose() {
   }
