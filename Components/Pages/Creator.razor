@@ -1,6 +1,8 @@
 ﻿@page "/create"
 @rendermode InteractiveServer
 
+<link href="static/editor.css" rel="stylesheet"/>
+
 <PageTitle>Survey Creator</PageTitle>
 
 <script>
@@ -126,10 +128,15 @@
 @inject IJSRuntime jsRuntime
 @implements IDisposable
 @code{
+  private IJSObjectReference? module;
+
   protected override async Task OnAfterRenderAsync(bool firstRender) {
     await base.OnAfterRenderAsync(firstRender);
-    await jsRuntime.InvokeVoidAsync("SurveyJS.initCreatorPage");
+    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/editor.js");            
+    await module.InvokeVoidAsync("init");
   }
   void IDisposable.Dispose() {
+    module?.DisposeAsync();
+    module = null;
   }
 }

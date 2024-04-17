@@ -6,11 +6,14 @@
         "build": "webpack"
     },
     "dependencies": {
+        "jspdf-autotable": "^3.8.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "survey-analytics": "latest",
         "survey-core": "latest",
         "survey-creator-core": "latest",
         "survey-creator-react": "latest",
+        "survey-pdf": "latest",
         "survey-react-ui": "latest"
     },
     "devDependencies": {

@@ -1,0 +1,26 @@
+﻿@page "/dashboard"
+@rendermode InteractiveServer
+
+<link href="static/dashboard.css" rel="stylesheet"/>
+
+<PageTitle>Survey Dashboard</PageTitle>
+
+<div class="text-center">
+    <div id="root"></div>
+</div>
+
+@inject IJSRuntime jsRuntime
+@implements IDisposable
+@code{
+  private IJSObjectReference? module;
+
+  protected override async Task OnAfterRenderAsync(bool firstRender) {
+    await base.OnAfterRenderAsync(firstRender);
+    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/dashboard.js");            
+    await module.InvokeVoidAsync("init");
+  }
+  void IDisposable.Dispose() {
+    module?.DisposeAsync();
+    module = null;
+  }
+}

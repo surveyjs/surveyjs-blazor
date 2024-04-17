@@ -1,6 +1,8 @@
 ﻿@page "/run"
 @rendermode InteractiveServer
 
+<link href="static/runner.css" rel="stylesheet"/>
+
 <PageTitle>Survey Runner</PageTitle>
 
 <script>
@@ -124,12 +126,17 @@
 </div>
 
 @inject IJSRuntime jsRuntime
-@implements IDisposable
+@implements IAsyncDisposable
 @code{
+  private IJSObjectReference? module;
   protected override async Task OnAfterRenderAsync(bool firstRender) {
     await base.OnAfterRenderAsync(firstRender);
-    await jsRuntime.InvokeVoidAsync("SurveyJS.initRunnerPage");
+    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/runner.js");            
+    await module.InvokeVoidAsync("init");
   }
-  void IDisposable.Dispose() {
+  async ValueTask IAsyncDisposable.DisposeAsync() {
+    if (module is not null) {
+        await module.DisposeAsync();
+    }
   }
 }
