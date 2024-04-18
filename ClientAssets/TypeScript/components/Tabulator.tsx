@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { data, json } from "../Data/dashboard_data";
+import { data, json } from "../../Data/dashboard_data";
 
 import jsPDF from "jspdf";
 // import * as XLSX from "xlsx";

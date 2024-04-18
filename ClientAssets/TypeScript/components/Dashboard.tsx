@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Model } from "survey-core";
 import { VisualizationPanel } from "survey-analytics";
 import "survey-analytics/survey.analytics.css";
-import { data, json } from "../Data/dashboard_data";
+import { data, json } from "../../Data/dashboard_data";
 
-export function DashboardComponent(param?: any) {
+export default function Dashboard(param?: any) {
   let [vizPanel, setVizPanel] = useState<VisualizationPanel>();
 
   if (!vizPanel) {
@@ -23,5 +23,3 @@ export function DashboardComponent(param?: any) {
 
   return <div id="surveyVizPanel" style={{"margin": "auto", "width": "100%", "maxWidth": "1400px"}}></div>;
 }
-
-export default DashboardComponent;

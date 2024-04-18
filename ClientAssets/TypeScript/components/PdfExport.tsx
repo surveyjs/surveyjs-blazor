@@ -2,7 +2,7 @@ import React from "react";
 import { Model } from "survey-core";
 import { SurveyPDF } from "survey-pdf";
 
-import { json } from "../Data/survey_json.js";
+import { json } from "../../Data/survey_json.js";
 
 function savePDF(model: Model) {
   const surveyPDF = new SurveyPDF(json);

@@ -1,7 +1,7 @@
 import React from 'react';
-import PdfExport from "./PdfExport";
+import PdfExport from "./components/PdfExport";
 import { createComponentRoot } from './utils';
 
 export function init(json: any = {}) {
-    createComponentRoot().render(<React.StrictMode><div><PdfExport json={json} /></div></React.StrictMode>);
+    createComponentRoot().render(<React.StrictMode><PdfExport json={json} /></React.StrictMode>);
 }

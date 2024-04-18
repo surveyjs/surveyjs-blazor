@@ -1,7 +1,9 @@
 import React from 'react';
-import SurveyRunnerComponent from "./SurveyComponent";
+import SurveyRunner from "./components/Survey";
 import { createComponentRoot } from './utils';
 
-export function init(json: any = {}) {
-    createComponentRoot().render(<React.StrictMode><div><SurveyRunnerComponent json={json} /></div></React.StrictMode>);
+import { json as demoJson } from "../Data/survey_json.js";
+
+export function init(json?: any) {
+    createComponentRoot().render(<React.StrictMode><SurveyRunner json={json || demoJson} /></React.StrictMode>);
 }
