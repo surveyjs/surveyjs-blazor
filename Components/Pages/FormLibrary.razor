@@ -1,9 +1,9 @@
 ﻿@page "/run"
 @rendermode InteractiveServer
 
-<link href="static/runner.css" rel="stylesheet"/>
+<link href="static/form-library.css" rel="stylesheet"/>
 
-<PageTitle>Survey Runner</PageTitle>
+<PageTitle>SurveyJS Form Library</PageTitle>
 
 <div id="root"></div>
 
@@ -13,12 +13,12 @@
   private IJSObjectReference? module;
   protected override async Task OnAfterRenderAsync(bool firstRender) {
     await base.OnAfterRenderAsync(firstRender);
-    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/runner.js");            
+    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/form-library.js");            
     await module.InvokeVoidAsync("init");
   }
   async ValueTask IAsyncDisposable.DisposeAsync() {
     if (module is not null) {
-        await module.DisposeAsync();
+      await module.DisposeAsync();
     }
   }
 }

@@ -5,6 +5,6 @@ import "survey-core/survey.i18n.js";
 import "survey-core/defaultV2.css";
 
 export default function SurveyRunner(props: { json?: Object }) {
-    const model = new Model(props.json);
-    return (<Survey model={model} />);
+  const model = new Model(props.json);
+  return (<Survey model={model} />);
 }
