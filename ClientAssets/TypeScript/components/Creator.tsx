@@ -17,8 +17,7 @@ export default function Creator(props: { json?: Object, options?: ICreatorOption
     if (!creator) {
         creator = new SurveyCreator(props.options || defaultCreatorOptions);
         creator.saveSurveyFunc = (no: number, callback: (num: number, status: boolean) => void) => {
-        console.log(JSON.stringify(creator?.JSON));
-        callback(no, true);
+            callback(no, true);
         };
         setCreator(creator);
     }

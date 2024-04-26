@@ -15,17 +15,17 @@ import "tabulator-tables/dist/css/tabulator.min.css";
 // (window as any)["XLSX"] = XLSX;
 
 export default function DashboardTabulator(param?: any) {
-  let [vizPanel, setVizPanel] = useState<Tabulator>();
+  let [tabulator, setTabulator] = useState<Tabulator>();
 
-  if (!vizPanel) {
+  if (!tabulator) {
     const survey = new SurveyModel(json);
-    vizPanel = new Tabulator(survey as any, data);
-    setVizPanel(vizPanel);
+    tabulator = new Tabulator(survey as any, data);
+    setTabulator(tabulator);
   }
 
   useEffect(() => {
-    vizPanel?.render("summaryContainer");
-  }, [vizPanel]);
+    tabulator?.render("summaryContainer");
+  }, [tabulator]);
 
   return <div style={{ height: "80vh", width: "100%" }} id="summaryContainer"></div>;
 }

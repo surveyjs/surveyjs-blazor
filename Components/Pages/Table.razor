@@ -1,9 +1,9 @@
 ﻿@page "/table"
 @rendermode InteractiveServer
 
-<link href="static/table.css" rel="stylesheet"/>
+<link href="static/tabulator.css" rel="stylesheet"/>
 
-<PageTitle>Survey Results Table</PageTitle>
+<PageTitle>SurveyJS Tabulator</PageTitle>
 
 <div class="widget-container">
   <div id="root"></div>
@@ -16,7 +16,7 @@
 
   protected override async Task OnAfterRenderAsync(bool firstRender) {
     await base.OnAfterRenderAsync(firstRender);
-    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/table.js");            
+    module = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./static/tabulator.js");            
     await module.InvokeVoidAsync("init");
   }
   void IDisposable.Dispose() {
