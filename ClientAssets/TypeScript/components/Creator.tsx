@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ICreatorOptions } from "survey-creator-core";
 import { SurveyCreator, SurveyCreatorComponent } from "survey-creator-react";
-import "survey-core/survey.i18n.js";
-import "survey-creator-core/survey-creator-core.i18n.js";
-import "survey-core/defaultV2.css";
+import "survey-core/survey.i18n";
+import "survey-creator-core/survey-creator-core.i18n";
+import "survey-core/survey-core.css";
 import "survey-creator-core/survey-creator-core.css";
 
 const defaultCreatorOptions: ICreatorOptions = {
