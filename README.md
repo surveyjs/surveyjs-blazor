@@ -1,4 +1,4 @@
-# SurveyJS + Blazor Quickstart Template
+# SurveyJS + Blazor + React Quickstart Template
 
 SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template shows how to integrate the following SurveyJS components into a Blazor application:
 
@@ -7,7 +7,7 @@ SurveyJS is a set of JavaScript components that allow you and your users to buil
 - [SurveyJS PDF Generator](https://surveyjs.io/pdf-generator/documentation/overview)
 - [SurveyJS Dashboard](https://surveyjs.io/dashboard/documentation/overview)
 
-This project uses React for the front-end part, but the SurveyJS components can also be similarly integrated with Angular, Knockout, jQuery, Vue 2, and Vue 3.
+> This project uses React for the front-end part, but the SurveyJS components can also be similarly integrated with Angular, jQuery, and Vue 3, or used without any front-end framework. Refer to the following repository for an example with vanilla JavaScript: [SurveyJS + Blazor + Vanilla JS Quickstart Template](https://github.com/surveyjs/surveyjs-blazor-vanillajs).
 
 ## Run the application
 
@@ -43,7 +43,7 @@ This template covers most basic use cases. You can find code examples for them i
 
 ## How to integrate SurveyJS components into your Blazor application
 
-SurveyJS components can be used with Angular, React, Vue.js, Knockout, and jQuery. You can integrate SurveyJS into a Blazor application that already uses one of these JavaScript frameworks/libraries or into one that doesn't use any of them. Follow the instructions below:
+SurveyJS components can be used with Angular, React, Vue.js, jQuery, and vanilla JavaScript. You can integrate SurveyJS into a Blazor application that already uses one of these JavaScript frameworks/libraries or into one that doesn't use any of them. Follow the instructions below:
 
 - [Add SurveyJS to a Blazor application with a JavaScript framework](#add-surveyjs-to-a-blazor-application-with-a-javascript-framework)
 - [Add SurveyJS to a Blazor application without a JavaScript framework](#add-surveyjs-to-a-blazor-application-without-a-javascript-framework)
@@ -58,7 +58,7 @@ Use the following tutorials to get started with SurveyJS components in your fram
 	- Get Started with Dashboard: [Angular](https://surveyjs.io/dashboard/documentation/get-started-angular) | [Vue.js](https://surveyjs.io/dashboard/documentation/get-started-vue) | [React](https://surveyjs.io/dashboard/documentation/get-started-react) | [HTML/CSS/JavaScript](https://surveyjs.io/dashboard/documentation/get-started-html-css-javascript)
 	- Get Started with PDF Generator: [Angular](https://surveyjs.io/pdf-generator/documentation/get-started-angular) | [Vue.js](https://surveyjs.io/pdf-generator/documentation/get-started-vue) | [React](https://surveyjs.io/pdf-generator/documentation/get-started-react) | [HTML/CSS/JavaScript](https://surveyjs.io/pdf-generator/documentation/get-started-html-css-javascript)
 
-    For component configuration examples in React, you can refer to the [ClientAssets/TypeScript/components](ClientAssets/TypeScript/components) directory.
+    For component configuration examples in React, you can refer to the [`ClientAssets/TypeScript/components`](ClientAssets/TypeScript/components) directory.
 	
 2. **Update the Webpack configuration**       
 To compile SurveyJS components into JavaScript and CSS files, you need to add new entry points to the Webpack configuration. Open the `webpack.config.js` file in the root directory of your project and update the `entry` and `output` objects. The following code shows how these objects are configured in this quick start template. In your project, the file paths may be different.
@@ -169,7 +169,7 @@ Open the `.csproj` file of your project in a text editor and add the following p
     ```
 
 1. **Configure SurveyJS components**      
-SurveyJS components support a number of JavaScript frameworks. The current template uses React. If you are not using any JavaScript framework or using React, you can simply copy files from the [ClientAssets](./ClientAssets/) directory to your project and adjust them as required.
+SurveyJS components support a number of JavaScript frameworks. The current template uses React. If you are not using any JavaScript framework or using React, you can simply copy files from the [`ClientAssets`](./ClientAssets/) directory to your project and adjust them as required.
 
 1. **Add Razor components that render SurveyJS components**     
 Refer to [step 4](#add-razor-components) of the instructions for Blazor applications with a JavaScript framework.
@@ -179,4 +179,4 @@ Refer to [step 4](#add-razor-components) of the instructions for Blazor applicat
 - [Website](https://surveyjs.io/)
 - [Documentation](https://surveyjs.io/form-library/documentation/overview)
 - [Starter Demos](https://surveyjs.io/form-library/examples/overview)
-- [What's New](https://surveyjs.io/stay-updated/major-updates/2023)
+- [What's New](https://surveyjs.io/stay-updated/major-updates/2024)
