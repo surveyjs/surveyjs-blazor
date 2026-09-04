@@ -1,25 +1,28 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Model } from "survey-core";
-import { VisualizationPanel } from "survey-analytics";
+import { Dashboard as SurveyDashboard } from "survey-analytics";
 import "survey-analytics/survey.analytics.css";
 import { data, json } from "../../Data/dashboard_data";
 
 export default function Dashboard(param?: any) {
-  let [vizPanel, setVizPanel] = useState<VisualizationPanel>();
+  let [dashboard, setDashboard] = useState<SurveyDashboard>();
 
-  if (!vizPanel) {
+  if (!dashboard) {
     const survey = new Model(json);
-    vizPanel = new VisualizationPanel(survey.getAllQuestions(), data);
-    setVizPanel(vizPanel);
+    dashboard = new SurveyDashboard({
+      questions: survey.getAllQuestions(),
+      data,
+    });
+    setDashboard(dashboard);
   }
 
   useEffect(() => {
-    vizPanel?.render("surveyVizPanel");
+    dashboard?.render("surveyDashboard");
     return () => {
-      vizPanel?.clear();
+      dashboard?.clear();
     }
-  }, [vizPanel]);
+  }, [dashboard]);
 
-  return <div id="surveyVizPanel" style={{"margin": "auto", "width": "100%", "maxWidth": "1400px"}}></div>;
+  return <div id="surveyDashboard" style={{"margin": "auto", "width": "100%", "maxWidth": "1400px"}}></div>;
 }

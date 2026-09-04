@@ -3,21 +3,24 @@ import { useEffect, useState } from "react";
 import { data, json } from "../../Data/dashboard_data";
 
 import jsPDF from "jspdf";
+import { applyPlugin } from "jspdf-autotable";
+applyPlugin(jsPDF);
 // import * as XLSX from "xlsx";
-import "jspdf-autotable";
 
 import { Tabulator } from "survey-analytics/survey.analytics.tabulator";
-import { SurveyModel } from "survey-core";
+import { Model } from "survey-core";
 import "survey-analytics/survey.analytics.tabulator.css";
 import "tabulator-tables/dist/css/tabulator.min.css";
-
 
 export default function DashboardTabulator(param?: any) {
   let [tabulator, setTabulator] = useState<Tabulator>();
 
   if (!tabulator) {
-    const survey = new SurveyModel(json);
-    tabulator = new Tabulator(survey as any, data, { jspdf: jsPDF, xlsx: null });
+    const survey = new Model(json);
+    tabulator = new Tabulator(survey, data, {
+      jspdf: jsPDF,
+      // xlsx: XLSX
+    });
     setTabulator(tabulator);
   }
 

@@ -179,4 +179,4 @@ Refer to [step 4](#add-razor-components) of the instructions for Blazor applicat
 - [Website](https://surveyjs.io/)
 - [Documentation](https://surveyjs.io/form-library/documentation/overview)
 - [Starter Demos](https://surveyjs.io/form-library/examples/overview)
-- [What's New](https://surveyjs.io/stay-updated/major-updates/2024)
+- [What's New](https://surveyjs.io/stay-updated/major-updates/2025-2026)
